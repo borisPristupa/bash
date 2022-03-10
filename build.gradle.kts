@@ -1,7 +1,7 @@
 plugins {
     kotlin("jvm") version "1.6.10"
-    java
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
+    application
 }
 
 group = "com.boris"
@@ -26,6 +26,14 @@ sourceSets {
         java.setSrcDirs(listOf("test"))
         resources.setSrcDirs(listOf("resources"))
     }
+}
+
+application {
+    mainClass.set("com.boris.bash.MainKt")
+}
+
+tasks.getByName<JavaExec>("run") {
+    standardInput = System.`in`
 }
 
 tasks.getByName<Test>("test") {
