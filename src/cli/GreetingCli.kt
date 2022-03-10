@@ -41,8 +41,8 @@ internal class GreetingCli(
     }
 
     private fun greeting(): String {
-        val name = environment.get("LOGNAME")
-            ?: environment.get("USER")
+        val name = environment["LOGNAME"]
+            ?: environment["USER"]
             ?: "e-bash"
 
         return "$name$ "

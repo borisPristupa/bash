@@ -9,8 +9,8 @@ internal interface Environment {
      */
     fun keys(): Set<String>
 
-    fun get(key: String): String?
-    fun set(key: String, value: String)
+    operator fun get(key: String): String?
+    operator fun set(key: String, value: String)
 
     fun copy(): Environment
 }
