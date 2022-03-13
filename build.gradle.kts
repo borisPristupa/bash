@@ -34,6 +34,23 @@ application {
     mainClass.set("com.boris.bash.MainKt")
 }
 
+tasks.register<Jar>("uberJar") {
+    dependsOn(configurations.runtimeClasspath)
+
+    archiveClassifier.set("uber")
+    manifest.attributes["Main-Class"] = application.mainClass.get()
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from(sourceSets.main.get().output)
+    from(
+        configurations
+            .runtimeClasspath
+            .get()
+            .filter { it.name.endsWith("jar") }
+            .map(::zipTree)
+    )
+}
+
 tasks.getByName<JavaExec>("run") {
     standardInput = System.`in`
 }
