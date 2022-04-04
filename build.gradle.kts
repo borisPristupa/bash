@@ -15,6 +15,7 @@ dependencies {
     implementation(kotlin("stdlib"))
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation("commons-io:commons-io:2.11.0")
+    implementation("com.github.ajalt.clikt:clikt:3.4.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
