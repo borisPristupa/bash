@@ -5,9 +5,11 @@ import com.boris.bash.cli.GreetingCli
 import com.boris.bash.environment.SystemDelegatingDictEnvironment
 import com.boris.bash.executable.builtins.BuiltinsDict
 import com.boris.bash.executable.builtins.Cat
+import com.boris.bash.executable.builtins.Cd
 import com.boris.bash.executable.builtins.Echo
 import com.boris.bash.executable.builtins.Exit
 import com.boris.bash.executable.builtins.Grep
+import com.boris.bash.executable.builtins.Ls
 import com.boris.bash.executable.builtins.Pwd
 import com.boris.bash.executable.builtins.Wc
 import com.boris.bash.interpreter.Interpreter
@@ -34,6 +36,8 @@ class Shell(
                 Wc.Builder,
                 Pwd.Builder,
                 Exit.Builder,
+                Ls.Builder,
+                Cd.Builder
             ).associateBy { it.commandName }
         ),
         environment
