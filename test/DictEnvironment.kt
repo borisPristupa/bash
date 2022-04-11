@@ -2,8 +2,7 @@ package com.boris.bash
 
 import com.boris.bash.environment.Environment
 
-internal class DictEnvironment(dict: Map<String, String>) : Environment {
-    private val dict = dict.toMutableMap()
+internal class DictEnvironment(private val dict: MutableMap<String, String>) : Environment {
 
     override fun keys(): Set<String> {
         return dict.keys
@@ -18,16 +17,16 @@ internal class DictEnvironment(dict: Map<String, String>) : Environment {
     }
 
     override fun copy(): Environment {
-        return DictEnvironment(dict)
+        return DictEnvironment(dict.toMutableMap()) // make a copy
     }
 }
 
 internal fun emptyEnvironment(): Environment {
-    return DictEnvironment(emptyMap())
+    return DictEnvironment(mutableMapOf())
 }
 
 internal fun environmentOf(vararg pairs: Pair<String, String>): Environment {
-    return DictEnvironment(mapOf(*pairs))
+    return DictEnvironment(mutableMapOf(*pairs))
 }
 
 internal fun environmentsEqual(env1: Environment, env2: Environment): Boolean {
