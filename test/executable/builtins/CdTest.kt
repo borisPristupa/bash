@@ -8,10 +8,10 @@ import com.boris.bash.environment.homeDirectory
 import com.boris.bash.executable.builtins.Cd
 import com.boris.bash.executable.builtins.getCommand
 import com.boris.bash.executable.builtins.test
-import java.nio.file.Path
-import java.util.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.nio.file.Path
+import java.util.UUID
 
 internal class CdTest {
     @Test

@@ -1,8 +1,8 @@
 package executable.builtins
 
 import com.boris.bash.Resources
-import com.boris.bash.executable.builtins.getCommand
 import com.boris.bash.executable.builtins.Ls
+import com.boris.bash.executable.builtins.getCommand
 import com.boris.bash.executable.builtins.test
 import org.junit.jupiter.api.Test
 import java.nio.file.Path
